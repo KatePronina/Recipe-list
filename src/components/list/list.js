@@ -2,10 +2,12 @@ import React from 'react';
 
 import ListItem from '../list-item';
 
-const List = ({ items }) => {
+const List = ({ items, onToggleFavorites }) => {
 
   const elements = items.map((item) => {
-    return <ListItem data={ item }/>
+    return <ListItem data={ item }
+                     key={ item.id }
+                     onToggleFavorites={() => onToggleFavorites(item.id)} />
   })
 
   return (
