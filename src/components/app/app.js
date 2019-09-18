@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 import Search from '../search';
 import FavoriteBtn from '../favorite-btn';
 import List from '../list';
+import Form from '../form';
 
 
 class App extends Component {
+
+  id = 100;
 
   state = {
     items: [
@@ -64,6 +67,14 @@ class App extends Component {
     })
   }
 
+  onItemAdded = (item) => {
+    item.id = ++this.id;
+
+    this.setState((state) => {
+      return { items: [...state.items, item] }
+    })
+  }
+
   render() {
     const filteredItems = this.state.items
                         .filter(item => item.title.toLowerCase().includes(this.state.search.toLowerCase()))
@@ -85,6 +96,9 @@ class App extends Component {
         </div>
         <List items={ filteredItems }
               onToggleFavorites={ this.onToggleFavorites } />
+        <div className="recipe__form">
+          <Form onItemAdded={ this.onItemAdded }/>
+        </div>
       </div>
     )
   }
