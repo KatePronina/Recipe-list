@@ -1,3 +1,10 @@
+.recipe__favorite-btn {
+  background: none;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  font-size: 1rem;
+}
 .recipe__favorite-btn_active {
   color: red;
+  border-color: red;
 }

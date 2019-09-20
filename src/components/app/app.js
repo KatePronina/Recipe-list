@@ -5,6 +5,7 @@ import FavoriteBtn from '../favorite-btn';
 import List from '../list';
 import Form from '../form';
 
+import './app.css';
 
 class App extends Component {
 

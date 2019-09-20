@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './search.css';
+
 const Search = ({ onKeyUp }) => {
 
   return (

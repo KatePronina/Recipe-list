@@ -1,3 +1,19 @@
-.recipe__item_favorite {
+.recipe__item-header {
+  display: flex;
+  align-items: center;
+}
+.recipe__item-fav {
+  margin-right: .5rem;
+  background: none;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  height: 2rem;
+  font-size: 1rem;
+}
+.recipe__item-title_favorite {
   color: red;
+}
+.recipe__item-fav_active {
+  color: red;
+  border-color: red;
 }

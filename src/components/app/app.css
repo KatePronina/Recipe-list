@@ -1,0 +1,7 @@
+.recipe__title {
+  text-align: center;
+}
+.recipe__filters {
+  display: flex;
+  justify-content: space-between;
+}

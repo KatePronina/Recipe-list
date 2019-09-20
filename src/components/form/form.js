@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './form.css';
+
 class Form extends Component {
 
   state = {
@@ -53,9 +55,11 @@ class Form extends Component {
             onSubmit={ this.onSubmit }>
         <input type="text"
                className="form__title-input"
+               placeholder="Введите название"
                value={ this.state.title }
                onInput={ this.onTitleInput }/>
         <textarea className="form__description-input"
+                  placeholder="Введите описание"
                   value={ this.state.description }
                   onInput={ this.onDescriptionInput }>
         </textarea>

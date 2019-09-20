@@ -2,6 +2,8 @@ import React from 'react';
 
 import ListItem from '../list-item';
 
+import './list.css';
+
 const List = ({ items, onToggleFavorites }) => {
 
   const elements = items.map((item) => {

@@ -4,14 +4,17 @@ import './list-item.css';
 
 const ListItem = ({ data, onToggleFavorites }) => {
 
-  let classNames = 'recipe__item'
-  if (data.favorites) classNames += ' recipe__item_favorite'
+  let titleClassNames = 'recipe__item-title'
+  if (data.favorites) titleClassNames += ' recipe__item-title_favorite'
+
+  let buttonClassNames = 'recipe__item-fav'
+  if (data.favorites) buttonClassNames += ' recipe__item-fav_active'
 
   return (
-    <li className={ classNames }>
+    <li className="recipe__item">
       <div className="recipe__item-header">
-        <h2 className="recipe__item-title">{ data.title }</h2>
-        <button className="recipe__item-fav" onClick={ onToggleFavorites }>Избранное</button>
+        <button className={ buttonClassNames } onClick={ onToggleFavorites }>Избранное</button>
+        <h2 className={ titleClassNames }>{ data.title }</h2>
       </div>
       <p className="recipe__item-info">{ data.description }</p>
     </li>
