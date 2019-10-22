@@ -1,12 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { searchFilterChanged } from '../../actions';
 
 import './search.css';
 
-const Search = ({ onKeyUp }) => {
+const Search = ({ onNewValue }) => {
 
   return (
-    <input type="text" className="recipe__search" onKeyUp={ onKeyUp }/>
+    <input type="text"
+           className="recipe__search"
+           placeholder="Поиск..."
+           onKeyUp={ (event) => onNewValue(event.target.value) }/>
   )
 }
 
-export default Search;
+const mapDispatchToProps = {
+  onNewValue: searchFilterChanged
+}
+
+export default connect(null, mapDispatchToProps)(Search);

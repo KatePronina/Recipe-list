@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { changeFavoriteFilter } from '../../actions';
 
 import './favorite-btn.css';
 
@@ -11,4 +14,14 @@ const FavoriteBtn = ({ onFavoritesFilterToggle, filter }) => {
   )
 }
 
-export default FavoriteBtn;
+const mapStateToProps = ({ filter }) => {
+  return {
+    filter
+  }
+}
+
+const mapDispatchToProps = {
+  onFavoritesFilterToggle: changeFavoriteFilter
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteBtn);

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { addRecipe } from '../../actions';
 
 import './form.css';
 
@@ -36,8 +39,10 @@ class Form extends Component {
       description: this.state.description,
       favorites: this.state.favorites
     }
+
     this.reset();
-    this.props.onItemAdded(newItem);
+
+    this.props.onNewRecipe(newItem);
   }
 
   reset() {
@@ -57,11 +62,11 @@ class Form extends Component {
                className="form__title-input"
                placeholder="Введите название"
                value={ this.state.title }
-               onInput={ this.onTitleInput }/>
+               onChange={ this.onTitleInput }/>
         <textarea className="form__description-input"
                   placeholder="Введите описание"
                   value={ this.state.description }
-                  onInput={ this.onDescriptionInput }>
+                  onChange={ this.onDescriptionInput }>
         </textarea>
         <label className="form__checkbox-label"> В избранное
           <input type="checkbox"
@@ -78,4 +83,8 @@ class Form extends Component {
   }
 }
 
-export default Form;
+const mapDispatchToProps = {
+  onNewRecipe: addRecipe
+}
+
+export default connect(null, mapDispatchToProps)(Form);
